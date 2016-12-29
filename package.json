@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -Rf lib && babel src -d lib --copy-files",
+    "dev": "npm run build && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm run build && node index.js"
+    "start": "node index.js"
   },
   "author": "Blake Guilloud",
   "license": "ISC",
