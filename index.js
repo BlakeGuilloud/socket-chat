@@ -31,16 +31,3 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 app.use('/chats', chatRoutes);
 
 http.listen(port, () => console.log('app listening on port: ', port));
-
-
-
-
-
-
-// socket.on('lightOn', () => {
-//   io.emit('lightOn');
-// });
-//
-// socket.on('lightOff', () => {
-//   io.emit('lightOff');
-// });
