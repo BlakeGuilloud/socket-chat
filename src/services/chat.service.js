@@ -24,6 +24,5 @@ export async function createChat(chat) {
     return Promise.reject(err);
   }
 
-  console.log('new chat', newChat);
   return Promise.resolve(newChat);
 }
