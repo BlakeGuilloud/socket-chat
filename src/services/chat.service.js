@@ -15,7 +15,7 @@ export async function fetchChats() {
   return Promise.resolve(chats);
 }
 
-export async function createChat(chat) {
+export async function createChat(chat, params) {
   let newChat;
 
   try {
