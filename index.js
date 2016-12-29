@@ -9,25 +9,25 @@ const chatRoutes = require('./lib/routes/chat.routes');
 const db = process.env.MOGODB_URI || 'mongodb://localhost/testing';
 const port = process.env.PORT || 8100;
 
-// mongoose.connect(db);
-//
-// io.on('connection', (socket) => {
-//
-//   socket.on('submit', (msg) => {
-//     io.emit('submit', msg);
-//   });
-// });
-//
-// app.use(bodyParser.urlencoded({
-//   extended: true
-// }));
-//
-// app.use(bodyParser.json());
-//
-// app.use(express.static(__dirname));
-//
-// app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
-//
-// app.use('/chats', chatRoutes);
+mongoose.connect(db);
+
+io.on('connection', (socket) => {
+
+  socket.on('submit', (msg) => {
+    io.emit('submit', msg);
+  });
+});
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.use(bodyParser.json());
+
+app.use(express.static(__dirname));
+
+app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
+
+app.use('/chats', chatRoutes);
 
 http.listen(port, () => console.log('app listening on port: ', port));
