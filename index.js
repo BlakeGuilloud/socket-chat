@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const chatRoutes = require('./lib/routes/chat.routes');
 
 const db = process.env.MOGODB_URI || 'mongodb://localhost/testing';
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8100;
 
 mongoose.connect(db);
 
