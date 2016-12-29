@@ -1,0 +1,1 @@
+"use strict";function sendSuccess(a){return function(b){a.status(200).json(b.data||b)}}module.exports=sendSuccess;

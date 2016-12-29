@@ -1,0 +1,1 @@
+"use strict";function sendError(a){return function(b){b.statusCode?a.status(b.statusCode).json({code:b.statusCode,message:b.message}):a.status(500).json({code:500,message:b.message})}}module.exports=sendError;
