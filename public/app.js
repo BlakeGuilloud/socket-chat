@@ -2,20 +2,19 @@
   'use strict';
 
   const socket = io();
-
   let author = 'anonymous';
 
   $('#chat').hide();
 
-  $('#user').click(() => {
+  $('#userLogin').click(() => {
     author = $('#userInput').val();
 
     $('#login').hide();
     $('#chat').show();
   });
 
-  $('#submit').click(() => {
-    const content = $('#input').val();
+  $('#chatSubmit').click(() => {
+    const content = $('#chatInput').val();
 
     socket.emit('submit', content);
 
@@ -30,14 +29,17 @@
   });
 
   function appendToList(item) {
+    if (!item.author) item.author = 'anonymous';
     return $('#list').append(`
-      <div>${item.content}</div>
-      <div>-- ${item.author}</div>
+      <div class="chat-item">
+        <div class="content">${item.content}</div>
+        <div class="author">- ${item.author}</div>
+      </div>
     `);
   }
 
   socket.on('submit', (content) => {
-    $('#input').val('');
+    $('#chatInput').val('');
 
     const item = {
       content,
@@ -57,33 +59,3 @@
       });
     });
 }());
-
-
-
-
-
-
-
-
-
-// $('#lightOff').hide();
-//
-// $('#lightOn').click(() => {
-//   socket.emit('lightOn');
-//   $('#lightOn').hide();
-//   $('#lightOff').show();
-// });
-//
-// $('#lightOff').click(() => {
-//   socket.emit('lightOff');
-//   $('#lightOff').hide();
-//   $('#lightOn').show();
-// });
-//
-// socket.on('lightOn', () => {
-//   $('#messages').append(`<li>message</li>`);
-// });
-//
-// socket.on('lightOff', () => {
-//   $('#messages').append(`<li>message</li>`);
-// });

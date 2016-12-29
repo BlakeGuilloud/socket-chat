@@ -1,0 +1,99 @@
+body {
+  background-color: black;
+}
+#header {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+}
+
+#container {
+  background-color: white;
+  width: 30rem;
+  height: 40rem;
+  overflow: scroll;
+  margin: 0 auto;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#login {
+  align-self: center;
+  margin: 0 auto;
+  margin-bottom: 10rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#userInput {
+  padding: .5rem;
+  width: 10rem;
+  border-radius: 1px;
+}
+
+#userLogin {
+  margin-top: 1rem;
+  width: 6rem;
+  padding: .5rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  align-self: center;
+}
+
+#chat {
+  align-self: flex-end;
+}
+
+#list {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-item {
+  margin-top: 1rem;
+  border-bottom: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.author {
+  color: rgb(174, 207, 197);
+  font-size: .8rem;
+  align-self: flex-end;
+}
+
+.content {
+  font-size: 1.3rem;
+  align-self: flex-end;
+  text-align: right;
+}
+
+#form {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  width: 30rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#chatInput {
+  width: 20rem;
+  margin-left: 1rem;
+}
+
+#chatSubmit {
+  width: 6rem;
+  padding: .5rem;
+  margin-right: 1rem;
+  border: 1px solid black;
+  border-radius: 3px;
+  color: black;
+  background-color: white;
+  cursor: pointer;
+}

@@ -6,16 +6,21 @@
   <link rel="stylesheet" href="./public/styles.css">
 </head>
 <body>
+  <div id="header">Socket Chat</div>
+  <div id="container">
 
-  <div id="login">
-    <input type="text" id="userInput">
-    <button id="user">Your name</button>
-  </div>
+    <div id="login">
+      <input placeholder="Your name" type="text" id="userInput">
+      <button id="userLogin">Login</button>
+    </div>
 
-  <div id="chat">
-    <div id="list"></div>
-    <input type="text" id="input">
-    <button id="submit">Submit</button>
+    <div id="chat">
+      <div id="list"></div>
+      <div id="form">
+        <input type="text" id="chatInput">
+        <button id="chatSubmit">Send</button>
+      </div>
+    </div>
   </div>
 
   <script src="node_modules/socket.io-client/dist/socket.io.js" charset="utf-8"></script>
