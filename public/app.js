@@ -3,40 +3,48 @@
 
   const socket = io();
 
-  let user = 'anonymous';
+  let author = 'anonymous';
 
   $('#chat').hide();
 
   $('#user').click(() => {
-    user = $('#userInput').val();
+    author = $('#userInput').val();
 
     $('#login').hide();
     $('#chat').show();
   });
 
   $('#submit').click(() => {
-    const message = $('#input').val();
+    const content = $('#input').val();
 
-    socket.emit('submit', message);
+    socket.emit('submit', content);
 
     fetch('/chats', {
       method: 'POST',
       headers: new Headers({ 'Content-Type': 'application/json' }),
       body: JSON.stringify({
-        content: message,
-        author: user,
+        content,
+        author,
       }),
     });
   });
 
-  socket.on('submit', (msg) => {
+  function appendToList(item) {
+    return $('#list').append(`
+      <div>${item.content}</div>
+      <div>-- ${item.author}</div>
+    `);
+  }
+
+  socket.on('submit', (content) => {
     $('#input').val('');
 
-    $('#list').append(`
-      <div>${msg}</div>
-      <span>-- ${user}</span>
-      <br />
-    `);
+    const item = {
+      content,
+      author,
+    };
+
+    appendToList(item);
   });
 
   fetch('/chats')
@@ -45,12 +53,8 @@
       data.map((item) => {
         if (!item.content) return;
 
-        $('#list').append(`
-          <div>${item.content}</div>
-          <span>-- ${item.author}</span>
-          <br />
-        `)
-      })
+        appendToList(item);
+      });
     });
 }());
 
