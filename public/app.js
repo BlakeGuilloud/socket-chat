@@ -15,8 +15,11 @@
 
   $('#chatSubmit').click(() => {
     const content = $('#chatInput').val();
-
-    socket.emit('submit', content);
+    const item = {
+      content,
+      author,
+    };
+    socket.emit('submit', item);
 
     fetch('/chats', {
       method: 'POST',
@@ -38,13 +41,13 @@
     `);
   }
 
-  socket.on('submit', (content) => {
+  socket.on('submit', (item) => {
     $('#chatInput').val('');
 
-    const item = {
-      content,
-      author,
-    };
+    // const item = {
+    //   content,
+    //   author,
+    // };
 
     appendToList(item);
   });

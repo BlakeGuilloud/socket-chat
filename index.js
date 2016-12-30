@@ -13,8 +13,8 @@ mongoose.connect(db);
 
 io.on('connection', (socket) => {
 
-  socket.on('submit', (msg) => {
-    io.emit('submit', msg);
+  socket.on('submit', (item) => {
+    io.emit('submit', item);
   });
 });
 
