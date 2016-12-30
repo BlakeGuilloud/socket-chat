@@ -6,10 +6,10 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const chatRoutes = require('./lib/routes/chat.routes');
 
-const db = process.env.MOGODB_URI || 'mongodb://localhost/testing';
+const db = process.env.MONGODB_URI || 'mongodb://localhost/testing';
 const port = process.env.PORT || 8100;
 
-// mongoose.connect(db);
+mongoose.connect(db);
 
 io.on('connection', (socket) => {
 
