@@ -9,14 +9,14 @@ const chatRoutes = require('./lib/routes/chat.routes');
 const db = process.env.MOGODB_URI || 'mongodb://localhost/testing';
 const port = process.env.PORT || 8100;
 
-mongoose.connect(db);
+// mongoose.connect(db);
 
-io.on('connection', (socket) => {
-
-  socket.on('submit', (msg) => {
-    io.emit('submit', msg);
-  });
-});
+// io.on('connection', (socket) => {
+//
+//   socket.on('submit', (msg) => {
+//     io.emit('submit', msg);
+//   });
+// });
 
 app.use(bodyParser.urlencoded({
   extended: true
